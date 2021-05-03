@@ -1,6 +1,14 @@
 import React from "react";
-import { Container,
-  Header, Footer, FooterTab, Left, Right, Body, Title } from "native-base"
+import {
+    Container,
+    Header,
+    Footer,
+    FooterTab,
+    Left,
+    Right,
+    Body,
+    Title
+} from "native-base"
 
 
 function Layout({ children, left, right, title, footer }) {
