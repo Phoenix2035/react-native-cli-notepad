@@ -15,23 +15,15 @@ function Layout({ children, left, right, title, footer }) {
     return (
         <Container>
             <Header>
-                <Left>
-                    {left}
-                </Left>
+                <Left>{left}</Left>
                 <Body>
-                    <Title>
-                        {title}
-                    </Title>
+                    <Title>{title}</Title>
                 </Body>
-                <Right>
-                    {right}
-                </Right>
+                <Right>{right}</Right>
             </Header>
             {children}
             <Footer>
-                <FooterTab>
-                    {footer}
-                </FooterTab>
+                <FooterTab>{footer}</FooterTab>
             </Footer>
         </Container>
     )

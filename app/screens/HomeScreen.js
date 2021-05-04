@@ -5,6 +5,9 @@ import { useFocusEffect } from "@react-navigation/native"
 
 
 import Layout from "../components/Layout"
+import NoteContent from "../components/NoteContent"
+
+
 
 
 function HomeScreen(props) {
@@ -12,26 +15,27 @@ function HomeScreen(props) {
     const [notes, setNotes] = useState([])
 
     return (
-        <Layout title="یاداشت های من" footer={
-            <Button full onPress={() => props.navigation.navigate("Add")}>
-                <Text style={{ color: "white" }}>
-                    اضافه کردن یاداشت جدید
+        <Layout
+            title="یادداشت های من"
+            footer={
+                <Button full onPress={() => props.navigation.navigate("Add")}>
+                    <Text style={{ color: "white"}}>
+                        اضافه کردن یادداشت جدید
                 </Text>
-            </Button>
-        }>
+                </Button>
+            }>
 
             <FlatList
                 data={notes}
                 keyExtractor={note => note.id}
                 renderItem={note => (
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Update", {
-                        id: note.item.id
-                    })}>
-
-                        <Text>
-                            My Note
-                        </Text>
-
+                    <TouchableOpacity
+                        onPress={() =>
+                            props.navigation.navigate('Update', { id: note.item.id })
+                        }>
+                        <NoteContent
+                            note={{ item: { title: 'اولین یاداشت', content: 'اولین متن' } }}
+                        />
                     </TouchableOpacity>
                 )}
             />
