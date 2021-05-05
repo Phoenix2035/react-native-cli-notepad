@@ -1,5 +1,5 @@
 import React, { useState, useContext, useCallback } from "react"
-import { Text, FlatList, TouchableOpacity } from "react-native"
+import { Text, FlatList, TouchableOpacity, StyleSheet } from "react-native"
 import { Button } from "native-base"
 import { useFocusEffect } from "@react-navigation/native"
 
@@ -19,9 +19,9 @@ function HomeScreen(props) {
             title="یادداشت های من"
             footer={
                 <Button full onPress={() => props.navigation.navigate("Add")}>
-                    <Text style={{ color: "white"}}>
+                    <Text style={styles.addNote}>
                         اضافه کردن یادداشت جدید
-                </Text>
+                    </Text>
                 </Button>
             }>
 
@@ -43,5 +43,12 @@ function HomeScreen(props) {
         </Layout>
     );
 }
+
+const styles = StyleSheet.create({
+    addNote: {
+        color: "white",
+        fontFamily: "Vazir"
+    }
+})
 
 export default HomeScreen;

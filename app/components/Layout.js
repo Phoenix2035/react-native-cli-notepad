@@ -7,25 +7,30 @@ import {
     Left,
     Right,
     Body,
-    Title
+    Title,
+    StyleProvider
 } from "native-base"
+import getTheme from "../../native-base-theme/components"
+import commonColor from "../../native-base-theme/variables/commonColor"
 
 
 function Layout({ children, left, right, title, footer }) {
     return (
-        <Container>
-            <Header>
-                <Left>{left}</Left>
-                <Body>
-                    <Title>{title}</Title>
-                </Body>
-                <Right>{right}</Right>
-            </Header>
-            {children}
-            <Footer>
-                <FooterTab>{footer}</FooterTab>
-            </Footer>
-        </Container>
+        <StyleProvider style={getTheme(commonColor)}>
+            <Container>
+                <Header>
+                    <Left>{left}</Left>
+                    <Body>
+                        <Title>{title}</Title>
+                    </Body>
+                    <Right>{right}</Right>
+                </Header>
+                {children}
+                <Footer>
+                    <FooterTab>{footer}</FooterTab>
+                </Footer>
+            </Container>
+        </StyleProvider>
     )
 }
 
