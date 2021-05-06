@@ -1,7 +1,7 @@
 import Realm from "realm"
 
 const NoteSchema = {
-    name: "note",
+    name: "Note",
     properties: {
         id: "string",
         title: "string",
@@ -12,7 +12,7 @@ const NoteSchema = {
 
 export const realmDb = async () => {
     return await Realm.open({
-        schema: NoteSchema,
+        schema: [NoteSchema],
         schemaVersion: 1
     })
 }

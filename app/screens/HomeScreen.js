@@ -6,13 +6,21 @@ import { useFocusEffect } from "@react-navigation/native"
 
 import Layout from "../components/Layout"
 import NoteContent from "../components/NoteContent"
+import { Context } from "../context/Context"
+
 
 
 
 
 function HomeScreen(props) {
-
     const [notes, setNotes] = useState([])
+    const { getNotes } = useContext(Context)
+
+    useFocusEffect(   // for lifecycle use this go to add and back to Home, mount Home component
+        useCallback(() => {
+            setNotes(getNotes)
+        }, [getNotes])
+    )
 
     return (
         <Layout
@@ -34,7 +42,7 @@ function HomeScreen(props) {
                             props.navigation.navigate('Update', { id: note.item.id })
                         }>
                         <NoteContent
-                            note={{ item: { title: 'اولین یاداشت', content: 'اولین متن' } }}
+                            note={{ ...note }}
                         />
                     </TouchableOpacity>
                 )}

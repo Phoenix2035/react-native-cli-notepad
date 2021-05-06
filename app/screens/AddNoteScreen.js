@@ -5,6 +5,7 @@ import { Button, Textarea, Form, Item, Input, Label, Text } from "native-base"
 
 
 import Layout from "../components/Layout"
+import { Context } from "../context/Context"
 
 
 
@@ -13,6 +14,8 @@ function AddNoteScreen(props) {
     const [getTitle, setTitle] = useState("")
     const [getContent, setContent] = useState("")
 
+    const { addNote } = useContext(Context)
+
     const saveNote = () => {
         const note = {
             id: uuid.v4(),
@@ -20,6 +23,7 @@ function AddNoteScreen(props) {
             content: getContent
         }
 
+        addNote(note)
         // context.addNote(note)
         props.navigation.navigate("Home")
     }
