@@ -7,6 +7,7 @@ import { useFocusEffect } from "@react-navigation/native"
 import Layout from "../components/Layout"
 import NoteContent from "../components/NoteContent"
 import { Context } from "../context/Context"
+import { strings } from "../locale/i18n"
 
 
 
@@ -24,11 +25,11 @@ function HomeScreen(props) {
 
     return (
         <Layout
-            title="یادداشت های من"
+            title={strings("mainHeaderTitle")}
             footer={
                 <Button full onPress={() => props.navigation.navigate("Add")}>
                     <Text style={styles.addNote}>
-                        اضافه کردن یادداشت جدید
+                        {strings("addNote_btn")}
                     </Text>
                 </Button>
             }>

@@ -5,6 +5,7 @@ import { Button, Textarea, Form, Item, Input, Label, Text } from "native-base"
 
 import Layout from "../components/Layout"
 import { Context } from "../context/Context"
+import { strings } from "../locale/i18n"
 
 
 
@@ -37,28 +38,28 @@ function UpdateNoteScreen(props) {
 
     }
 
-    if (!note) return <Text>در حال بارگزاری ...</Text>
+    if (!note) return <Text>{strings("loading")}</Text>
 
 
 
     return (
         <Layout
-            title="ساخت یادداشت"
+            title={strings("updateHeaderTitle")}
             footer={
                 <>
                     <Button full onPress={() => props.navigation.navigate("Home")}>
-                        <Text>انصراف</Text>
+                        <Text>{strings("cancel_btn")}</Text>
                     </Button>
 
                     <Button full onPress={updateNote}>
                         <Text>
-                            ویرایش یادداشت
+                            {strings("updateNote_btn")}
                         </Text>
                     </Button>
 
                     <Button full onPress={deleteNote}>
                         <Text>
-                            حذف یادداشت
+                            {strings("deleteNote_btn")}
                         </Text>
                     </Button>
                 </>
@@ -66,7 +67,7 @@ function UpdateNoteScreen(props) {
 
             <Form style={styles.container}>
                 <Item>
-                    <Label>عنوان</Label>
+                    <Label>{strings("titleInput")}</Label>
                     <Input value={note.title} onChangeText={title => setNote({
                         title,
                         content: note.content
@@ -80,7 +81,7 @@ function UpdateNoteScreen(props) {
                         content
                     })}
                     bordered
-                    placeholder="متن اصلی اینجا قرار می گیرد"
+                    placeholder={strings("contentInput")}
                 />
             </Form>
         </Layout>
