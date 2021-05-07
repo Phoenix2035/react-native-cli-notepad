@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { I18nManager } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
+import RNBootSplash from "react-native-bootsplash";
+
 
 import { NoteProvider } from "./app/context/Context"
 import HomeScreen from "./app/screens/HomeScreen"
@@ -14,6 +16,10 @@ I18nManager.forceRTL(true)
 const Stack = createStackNavigator()
 
 const App = () => {
+
+    useEffect(() => {
+        RNBootSplash.hide({ fade: true })
+    }, [])
     return (
         <NoteProvider>
             <NavigationContainer>
