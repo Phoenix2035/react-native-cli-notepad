@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import uuid from "react-native-uuid"
+import shortId from "shortid"
 import { StyleSheet } from "react-native"
 import { Button, Textarea, Form, Item, Input, Label, Text } from "native-base"
 
@@ -19,7 +19,7 @@ function AddNoteScreen(props) {
 
     const saveNote = () => {
         const note = {
-            id: uuid.v4(),
+            id: shortId.generate(),
             title: getTitle,
             content: getContent
         }
